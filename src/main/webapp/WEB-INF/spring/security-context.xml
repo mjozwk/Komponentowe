@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<beans:bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url" value="jdbc:mysql://localhost/myshop" />
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="" />
+	</beans:bean>
+
+	<http auto-config="true">
+		<intercept-url pattern="/myshop**" access="ROLE_USER" />
+
+		<form-login login-page="/login.jsp" default-target-url="/"
+			login-processing-url="/j_spring_security_check"
+			authentication-failure-url="/login?status=invalid"
+			username-parameter="username" password-parameter="password" />
+		<logout logout-success-url="/" logout-url="/j_spring_security_logout" />
+		<!-- csrf enabled by default since 4.0 version -->
+	</http>
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT username, password, enabled FROM klient WHERE username=?"
+				authorities-by-username-query="SELECT username, 'ROLE_USER' FROM klient WHERE username =?  " />
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>
