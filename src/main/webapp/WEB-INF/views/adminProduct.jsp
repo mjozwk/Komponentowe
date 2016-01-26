@@ -7,14 +7,6 @@
 <title>MyShop</title>
 </head>
 <body>
-	<center>
-		<h1>PANEL ADMINISTRACYJNY</h1>
-		<a href="/myshop/admin/user" >Usuń klienta</a>
-		</br>
-		<a href="/myshop/admin/product/insert" >Dodaj produkt</a>
-		</br>	
-		<a href="/myshop/admin/product/delete" >Usuń produkt</a>
-	</center>
-	<a href="/myshop">Cofnij</a>
+
 </body>
 </html>

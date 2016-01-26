@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@page language="java" pageEncoding="UTF-8"%>
+<%@ page session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,6 +48,7 @@ table.sample td {
 		<th><a href="products/culture">KULTURA I ROZRYWKA</a></th>
 		<th><a href="products/house">DOM I ZDROWIE</a></th>
 	</table>
+	<a href="/myshop">Strona główna</a>
 
 
 </body>

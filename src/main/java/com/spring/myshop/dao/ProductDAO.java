@@ -33,8 +33,30 @@ public class ProductDAO {
 		this.dataSource = dataSource;
 	}
 
+	public void delete(int id){
+		String sql = "DELETE FROM produkt WHERE id=" + id;
+		Connection conn = null;
+		
+		try {
+			conn = dataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
+	}
 	public void insert(Product product) {
-		String sql = "INSERT INTO product" + "(name, description, price, cat_id) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO produkt" + "(name, description, price, cat_id) VALUES (?, ?, ?, ?)";
 		Connection conn = null;
 
 		try {
@@ -43,7 +65,7 @@ public class ProductDAO {
 			ps.setString(1, product.getName());
 			ps.setString(2, product.getDescription());
 			ps.setInt(3, product.getPrice());
-			ps.setInt(4, product.getCategory().getId());
+			ps.setInt(4, product.getCat_id());
 			ps.executeUpdate();
 			ps.close();
 

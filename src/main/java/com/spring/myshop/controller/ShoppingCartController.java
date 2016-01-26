@@ -60,4 +60,8 @@ public class ShoppingCartController {
 		session.setAttribute("cart", cart);
 		return "cart";
 	}
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public String shoppingCart(){
+		return "cart";
+	}
 }

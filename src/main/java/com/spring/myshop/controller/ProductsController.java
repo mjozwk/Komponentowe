@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.myshop.cart.Cart;
 import com.spring.myshop.dao.ProductDAO;
 import com.spring.myshop.product.Product;
+import com.spring.myshop.user.User;
 
 @Controller
 @ComponentScan("com.spring.myshop.dao.ProductDAO")
@@ -69,4 +71,5 @@ public class ProductsController {
 	    
 		return "house";
 	}
+
 }

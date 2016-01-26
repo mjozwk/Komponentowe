@@ -54,6 +54,11 @@ public class Product {
 		this.price = price;
 		this.category = category;
 	}
+	public Product(String name, String description, int price) {
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}

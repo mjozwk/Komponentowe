@@ -21,18 +21,32 @@
 		<center>MyShop</center>
 	</h1>
 
-	
+
 	<c:choose>
 		<c:when test="${pageContext.request.userPrincipal.name != null}">
-		<a href="/myshop/products"><center>Wybierz produkty</center></a></br>
-			<a href="/myshop/cart"> <center>Koszyk</center></a></br>
-			<a href="javascript:formSubmit()"> <center>Wyloguj się</center></a></br>
+			<center>Witaj ${username}</center>
+			<a href="/myshop/products"><center>Wybierz produkty</center></a>
+			</br>
+			<a href="/myshop/shoppingcart">
+				<center>Koszyk</center>
+			</a>
+			</br>
+			<a href="javascript:formSubmit()">
+				<center>Wyloguj się</center>
+			</a>
+			</br>
 		</c:when>
 		<c:otherwise>
-			<a href="/myshop/login"><center>Zaloguj się</center></a></br>
-			<a href="/myshop/registration"><center>Zarejestruj</center></a></br>
+			<a href="/myshop/login"><center>Zaloguj się</center></a>
+			</br>
+			<a href="/myshop/registration"><center>Zarejestruj</center></a>
+			</br>
 		</c:otherwise>
 	</c:choose>
-	<a href="/myshop/admin"><center>Panel administracyjny</center>
+	<c:choose>
+		<c:when test="${username == 'Admin'}">
+			<a href="/myshop/admin"><center>Panel administracyjny</center></a>
+		</c:when>
+	</c:choose>
 </body>
 </html>
